@@ -27,6 +27,10 @@ myApp.controller("NinjaController", [
       $scope.ninjas.splice(index, 1);
     };
 
+    $scope.addNinja = function() {
+      $scope.ninjas.push();
+    };
+
     $scope.ninjas = [
       {
         name: "Yoshi",
@@ -48,7 +52,7 @@ myApp.controller("NinjaController", [
       },
       {
         name: "Shaun",
-        belt: "white",
+        belt: "blue",
         rate: 200,
         available: true
       }
