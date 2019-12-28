@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Ninja App</title>
-
+    <link href="styles.css" rel="stylesheet" type="text/css" />
     <!-- Added the AngularJS CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
     <script src="./app.js"></script>
@@ -18,7 +18,7 @@
     <!-- <div>
       <ng-include src="'navbar.html'">
     </div> -->
-      <div ng-controller="NinjaController">
+      <div class="content" ng-controller="NinjaController">
 
         <p>{{message}}</p>
         <input type="text" ng-model="search" placeholder="Search for a ninja"/>
@@ -32,8 +32,8 @@
             ng-show="item.available"
           >
             <h3>{{item.name}} - {{item.rate | currency: '$'}}</h3>
-            <span style="background-color: {{item.belt}};">{{item.belt}} belt</span>
-            <div ng-cick="removeItem(item)">x</div>
+            <div class="remove" ng-cick="removeItem(item)">x</div>
+            <span class="belt" style="background-color: {{item.belt}};">{{item.belt}} belt</span>
             <hr />
           </ul>
       </div>
