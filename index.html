@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Ninja App</title>
-    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <link href="./styles/styles.css" rel="stylesheet" type="text/css" />
     <!-- Added the AngularJS CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
-    <script src="./app.js"></script>
+    <script src="./scripts/app.js"></script>
+    <!-- <script src="./libraries/angular.min.js"></script> -->
     <script src="./libraries/angular-route.min.js"></script>
 
   </head>
 
-  <header ng-include="'navbar.html'"></header>
+  <header ng-include="'./views/navbar.html'"></header>
 
   <body ng-app ="myNinjaApp">
     <!-- Alternative to header tag implementation -->

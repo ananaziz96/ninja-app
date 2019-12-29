@@ -1,5 +1,4 @@
 let myApp = angular.module("myNinjaApp", ["ngRoute"]);
-
 //The function passed in can be fired when before our app runs/loads, etc.
 //i.e. routing
 myApp.config([
@@ -18,12 +17,12 @@ myApp.config([
       });
   }
 ]);
-
 //The function passed in can be fired when our app runs/loads, etc.
 myApp.run(function() {});
 
 myApp.controller("NinjaController", [
   "$scope",
+  "$http",
   function($scope) {
     $scope.message = "Hello everyone! Welcome to my Ninja App";
 
@@ -32,7 +31,6 @@ myApp.controller("NinjaController", [
       var index = $scope.ninjas.indexOf(item);
       $scope.ninjas.splice(index, 1);
     };
-
     //Adding a new ninja
     $scope.addNinja = function() {
       $scope.ninjas.push({
@@ -41,7 +39,6 @@ myApp.controller("NinjaController", [
         rate: $scope.newNinja.rate,
         available: true
       });
-
       //Clear the form after adding
       $scope.newNinja.name = "";
       $scope.newNinja.belt = "";
@@ -78,5 +75,8 @@ myApp.controller("NinjaController", [
         imageSource: "images/image4.jpg"
       }
     ];
+
+    //Converts a object to json
+    // console.log(angular.toJson($scope.ninjas));
   }
 ]);
