@@ -1,23 +1,23 @@
-let myApp = angular.module("myNinjaApp", []);
+let myApp = angular.module("myNinjaApp", ["ngRoute"]);
 
 //The function passed in can be fired when before our app runs/loads, etc.
 //i.e. routing
-// myApp.config([
-//   "$routeProvider",
-//   function() {
-//     $routeProvider
-//       .when("/home", {
-//         templateUrl: "views/home.html"
-//       })
-//       .when("/directory", {
-//         templateUrl: "views/directory.html",
-//         controller: "NinjaController"
-//       })
-//       .otherwise({
-//         redirectTo: "/home"
-//       });
-//   }
-// ]);
+myApp.config([
+  "$routeProvider",
+  function($routeProvider) {
+    $routeProvider
+      .when("/home", {
+        templateUrl: "views/home.html"
+      })
+      .when("/directory", {
+        templateUrl: "views/directory.html",
+        controller: "NinjaController"
+      })
+      .otherwise({
+        redirectTo: "/home"
+      });
+  }
+]);
 
 //The function passed in can be fired when our app runs/loads, etc.
 myApp.run(function() {});
