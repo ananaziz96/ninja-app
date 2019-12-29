@@ -1,4 +1,5 @@
 let myApp = angular.module("myNinjaApp", ["ngRoute"]);
+
 //The function passed in can be fired when before our app runs/loads, etc.
 //i.e. routing
 myApp.config([
@@ -6,7 +7,8 @@ myApp.config([
   function($routeProvider) {
     $routeProvider
       .when("/home", {
-        templateUrl: "views/home.html"
+        templateUrl: "views/home.html",
+        controller: "NinjaController"
       })
       .when("/directory", {
         templateUrl: "views/directory.html",
@@ -17,8 +19,32 @@ myApp.config([
       });
   }
 ]);
+
 //The function passed in can be fired when our app runs/loads, etc.
-myApp.run(function() {});
+// myApp.run(function() {});
+
+myApp.directive("randomNinjaImage", [
+  function() {
+    //This should return an object
+    return {
+      //E means we can only use the directive as an Element
+      restrict: "E",
+      scope: {
+        //These were passed in from the custom directive
+        ninjas: "=",
+        title: "="
+      },
+      templateUrl: "./views/randomNinjaImage.html",
+      transclude: true,
+      //replaces <random-ninja-image> with <section>
+      //i.e. the parent tag in the randomNinjaImage.html
+      replace: true,
+      controller: function($scope) {
+        $scope.random = Math.floor(Math.random() * 4);
+      }
+    };
+  }
+]);
 
 myApp.controller("NinjaController", [
   "$scope",
@@ -78,5 +104,9 @@ myApp.controller("NinjaController", [
 
     //Converts a object to json
     // console.log(angular.toJson($scope.ninjas));
+
+    // $http.get("data/ninja-list.json").success(function(data) {
+    //   $scope.ninjas = data;
+    // });
   }
 ]);
