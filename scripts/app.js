@@ -35,6 +35,10 @@ myApp.directive("randomNinjaImage", [
         title: "="
       },
       templateUrl: "./views/randomNinjaImage.html",
+      transclude: true,
+      //replaces <random-ninja-image> with <section>
+      //i.e. the parent tag in the randomNinjaImage.html
+      replace: true,
       controller: function($scope) {
         $scope.random = Math.floor(Math.random() * 4);
       }
