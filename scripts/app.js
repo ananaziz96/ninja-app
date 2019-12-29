@@ -24,6 +24,7 @@ myApp.run(function() {});
 
 myApp.controller("NinjaController", [
   "$scope",
+  "$http",
   function($scope) {
     $scope.message = "Hello everyone! Welcome to my Ninja App";
 
@@ -48,35 +49,45 @@ myApp.controller("NinjaController", [
       $scope.newNinja.rate = "";
     };
 
-    $scope.ninjas = [
-      {
-        name: "Yoshi",
-        belt: "orange",
-        rate: 50,
-        available: true,
-        imageSource: "images/image1.jpg"
-      },
-      {
-        name: "Crystal",
-        belt: "green",
-        rate: 100,
-        available: true,
-        imageSource: "images/image2.jpg"
-      },
-      {
-        name: "Kenji",
-        belt: "brown",
-        rate: 150,
-        available: false,
-        imageSource: "images/image3.jpg"
-      },
-      {
-        name: "Shaun",
-        belt: "blue",
-        rate: 200,
-        available: true,
-        imageSource: "images/image4.jpg"
-      }
-    ];
+    $http.get("data/ninja-list.json").success(function(data) {
+      $scope.ninjas = data;
+    });
+
+    console.log($http.get("data/ninja-list.json"));
+
+    //This data is in data/ninja-list.json
+    // $scope.ninjas = [
+    //   {
+    //     name: "Yoshi",
+    //     belt: "orange",
+    //     rate: 50,
+    //     available: true,
+    //     imageSource: "images/image1.jpg"
+    //   },
+    //   {
+    //     name: "Crystal",
+    //     belt: "green",
+    //     rate: 100,
+    //     available: true,
+    //     imageSource: "images/image2.jpg"
+    //   },
+    //   {
+    //     name: "Kenji",
+    //     belt: "brown",
+    //     rate: 150,
+    //     available: false,
+    //     imageSource: "images/image3.jpg"
+    //   },
+    //   {
+    //     name: "Shaun",
+    //     belt: "blue",
+    //     rate: 200,
+    //     available: true,
+    //     imageSource: "images/image4.jpg"
+    //   }
+    // ];
+
+    //Converts the ninjas ob
+    // console.log(angular.toJson($scope.ninjas));
   }
 ]);
