@@ -14,13 +14,12 @@
     <script src="./libraries/angular-animate.min.js"></script>
   </head>
 
-  <header ng-include="'./views/navbar.html'"></header>
-
   <body ng-app ="myNinjaApp">
     <!-- Alternative to header tag implementation -->
     <!-- <div>
       <ng-include src="'navbar.html'">
-    </div> -->      
+    </div> --> 
+    <header ng-include="'./views/navbar.html'"></header>    
     
     <main ng-view></main>
   </body>

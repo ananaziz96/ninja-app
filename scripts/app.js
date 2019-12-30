@@ -4,7 +4,10 @@ let myApp = angular.module("myNinjaApp", ["ngRoute", "ngAnimate"]);
 //i.e. routing
 myApp.config([
   "$routeProvider",
+  "$locationProvider",
   function($routeProvider) {
+    //$locationProvider.html5Mode(true);
+
     $routeProvider
       .when("/home", {
         templateUrl: "views/home.html",
