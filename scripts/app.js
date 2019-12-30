@@ -1,4 +1,4 @@
-let myApp = angular.module("myNinjaApp", ["ngRoute"]);
+let myApp = angular.module("myNinjaApp", ["ngRoute", "ngAnimate"]);
 
 //The function passed in can be fired when before our app runs/loads, etc.
 //i.e. routing
@@ -57,6 +57,12 @@ myApp.controller("NinjaController", [
       var index = $scope.ninjas.indexOf(item);
       $scope.ninjas.splice(index, 1);
     };
+
+    //Removing all ninjas
+    $scope.removeAll = function() {
+      $scope.ninjas = [];
+    };
+
     //Adding a new ninja
     $scope.addNinja = function() {
       $scope.ninjas.push({
