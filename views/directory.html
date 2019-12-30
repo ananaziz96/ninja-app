@@ -9,6 +9,7 @@
   <!-- variables used- order, search -->
   <ul>
     <li
+      id="ninja-list"
       ng-repeat="item in ninjas | orderBy: order | filter: search"
       ng-show="item.available"
     >
@@ -32,4 +33,6 @@
     <input type="text" placeholder="rate" ng-model="newNinja.rate" />
     <input type="submit" value="Add new ninja" />
   </form>
+
+  <a href="" ng-click="removeAll()">Remove all ninjas</a>
 </div>
