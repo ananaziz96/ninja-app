@@ -11,11 +11,16 @@ myApp.config([
         controller: "NinjaController"
       })
       .when("/contact", {
-        templateUrl: "views/contact.html"
+        templateUrl: "views/contact.html",
+        controller: "ContactController"
       })
       .when("/directory", {
         templateUrl: "views/directory.html",
         controller: "NinjaController"
+      })
+      .when("/thankyou", {
+        templateUrl: "views/thankyou.html",
+        controller: "ContactController"
       })
       .otherwise({
         redirectTo: "/home"
@@ -117,5 +122,15 @@ myApp.controller("NinjaController", [
     // $http.get("data/ninja-list.json").success(function(data) {
     //   $scope.ninjas = data;
     // });
+  }
+]);
+
+myApp.controller("ContactController", [
+  "$scope",
+  "$location",
+  function($scope, $location) {
+    $scope.thankyouMessage = function() {
+      $location.path("/thankyou");
+    };
   }
 ]);

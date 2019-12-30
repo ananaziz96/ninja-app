@@ -7,9 +7,8 @@
   <input type="text" ng-model="search" placeholder="search for a ninja" />
 
   <!-- variables used- order, search -->
-  <ul>
+  <ul id="ninja-list">
     <li
-      id="ninja-list"
       ng-repeat="item in ninjas | orderBy: order | filter: search"
       ng-show="item.available"
     >
